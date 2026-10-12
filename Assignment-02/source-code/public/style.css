@@ -1,0 +1,99 @@
+:root {
+  --bg: #f5f7fb;
+  --fg: #222;
+  --muted: #777;
+  --primary: #4f46e5;
+  --card: #fff;
+  --line: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font: 15px/1.5 system-ui;
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Header */
+.header {
+  text-align: center;
+  padding: 16px;
+  background: var(--primary);
+  color: white;
+}
+
+/* Layout */
+.wrap {
+  max-width: 900px;
+  margin: auto;
+  padding: 16px;
+}
+
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 760px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Card */
+.card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 14px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Inputs */
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+}
+
+/* Button */
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+/* Booking Cards */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.appt {
+  padding: 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.appt p {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}

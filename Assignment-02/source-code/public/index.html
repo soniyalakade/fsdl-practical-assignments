@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Appointment Booking</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <h1>📅 Hospital Appointment System</h1>
+  </header>
+
+  <main class="wrap grid">
+    
+    <!-- Form -->
+    <section class="card">
+      <h2>Book Appointment</h2>
+      <form id="f">
+        <input name="name" placeholder="Your Name" required>
+        <input name="phone" placeholder="Phone Number" required>
+
+        <!-- ✅ Specialist Dropdown -->
+        <select name="specialist" required>
+          <option value="">Select Specialist</option>
+          <option>Cardiologist</option>
+          <option>Gynecologist</option>
+          <option>Pediatrician</option>
+          <option>Dermatologist</option>
+          <option>Orthopedic</option>
+        </select>
+
+        <input name="date" type="date" id="date" required>
+        <select name="slot" id="slot" required></select>
+
+        <button>Book Appointment</button>
+      </form>
+
+      <p class="muted" id="msg"></p>
+    </section>
+
+    <!-- Booking List -->
+    <section class="card">
+      <h2>Bookings</h2>
+      <div id="list" class="list"></div>
+    </section>
+
+  </main>
+
+  <script>
+    const f = document.getElementById("f");
+    const slot = document.getElementById("slot");
+    const list = document.getElementById("list");
+    const msg = document.getElementById("msg");
+    const dateInput = document.getElementById("date");
+
+    // Prevent past date
+    dateInput.min = new Date().toISOString().split("T")[0];
+
+    async function loadSlots() {
+      const res = await fetch("/api/slots");
+      const data = await res.json();
+      slot.innerHTML = data.map(s => `<option>${s}</option>`).join("");
+    }
+
+    async function loadList() {
+      const res = await fetch("/api/appointments");
+      const data = await res.json();
+
+      list.innerHTML = data.map(a => `
+        <div class="appt">
+          <div>
+            <strong>${a.name}</strong>
+            <p><b>${a.specialist}</b></p>
+            <p>${a.date} • ${a.slot}</p>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    f.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const body = Object.fromEntries(new FormData(f));
+
+      const res = await fetch("/api/appointments", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      });
+
+      const text = res.ok ? "Booked ✅" : (await res.json()).error;
+      msg.textContent = text;
+
+      // Auto-hide message
+      setTimeout(() => {
+        msg.textContent = "";
+      }, 3000);
+
+      if (res.ok) {
+        f.reset();
+        loadList();
+      }
+    });
+
+    loadSlots();
+    loadList();
+  </script>
+
+</body>
+</html>

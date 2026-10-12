@@ -36,7 +36,13 @@ fsdl-practical-assignments/
 ├── Assignment-02/        # Appointment Booking
 ├── Assignment-03/        # Feedback app (frontend + backend)
 ├── Assignment-04/        # devTinder web
+├── profile-website/      # Personal profile website
 └── README.md
 ```
+
+## Hosted Profile Website
+
+Live Link: https://soniyalakade.github.io/fsdl-practical-assignments/
+
 
 Each assignment folder has its own `README.md`and a `source-code/` folder.

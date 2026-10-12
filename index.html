@@ -1,11 +1,86 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=profile-website/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Soniya Lakade's Full Stack Development Lab assignments and portfolio.">
   <title>Soniya Lakade | FSDL Practical Assignments</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6fa;
+      color: #243047;
+      line-height: 1.6;
+    }
+    header {
+      background: #203354;
+      color: white;
+      padding: 48px 20px;
+      text-align: center;
+    }
+    header h1 { margin: 0 0 8px; }
+    main { max-width: 1000px; margin: 32px auto; padding: 0 18px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: white;
+      padding: 22px;
+      border-radius: 12px;
+      border: 1px solid #e0e5ed;
+    }
+    .card h2 { font-size: 1.15rem; margin-top: 0; }
+    a { color: #2459a9; font-weight: bold; }
+    .profile { margin-top: 24px; }
+    footer { text-align: center; padding: 24px; color: #596579; }
+  </style>
 </head>
 <body>
-  <p>Redirecting to the <a href="profile-website/">profile website</a>…</p>
+  <header>
+    <h1>FSDL Practical Assignments</h1>
+    <p>Soniya Lakade | B.Tech Computer Engineering</p>
+    <p>Full Stack Development Lab</p>
+  </header>
+
+  <main>
+    <h2>My Assignments</h2>
+    <div class="grid">
+      <section class="card">
+        <h2>Assignment 01</h2>
+        <p>College Enquiry System</p>
+        <a href="https://github.com/soniyalakade/fsdl-practical-assignments/tree/main/Assignment-01">View source and README</a>
+      </section>
+      <section class="card">
+        <h2>Assignment 02</h2>
+        <p>Appointment Booking System</p>
+        <a href="https://github.com/soniyalakade/fsdl-practical-assignments/tree/main/Assignment-02">View source and README</a>
+      </section>
+      <section class="card">
+        <h2>Assignment 03</h2>
+        <p>Feedback Application</p>
+        <a href="https://github.com/soniyalakade/fsdl-practical-assignments/tree/main/Assignment-03">View source and README</a>
+      </section>
+      <section class="card">
+        <h2>Assignment 04</h2>
+        <p>devTinder Web Client</p>
+        <a href="https://github.com/soniyalakade/fsdl-practical-assignments/tree/main/Assignment-04">View source and README</a>
+      </section>
+    </div>
+
+    <section class="card profile">
+      <h2>Personal Profile</h2>
+      <p>Explore my education, technical skills, projects, certifications and contact information.</p>
+      <p><a href="portfolio/">Visit My Portfolio</a></p>
+      <p><a href="https://github.com/soniyalakade">GitHub Profile</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Soniya Lakade | FSDL Practical Assignments</p>
+  </footer>
 </body>
 </html>

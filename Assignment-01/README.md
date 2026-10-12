@@ -15,6 +15,7 @@ echo "MONGO_URI=<your-mongodb-connection-string>" > .env
 npm start
 ```
 
+
 ## Output screenshots
 
 See the `output-screenshots/` folder.
